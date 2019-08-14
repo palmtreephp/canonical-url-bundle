@@ -19,7 +19,7 @@
     },
     "require-dev": {
         "palmtree/php-cs-fixer-config": "^1.0",
-        "phpunit/phpunit": "~8.3",
+        "phpunit/phpunit": "~5.7|~8.3",
         "symfony/yaml": "~4.3"
     },
     "autoload": {
