@@ -7,22 +7,22 @@ matrix:
   allow_failures:
     - php: hhvm
   include:
-    - php: 7.3
+    - php: '7.3'
       env: PHPSNIFF=1 PHPLINT=1 PHPUNIT=1
-    - php: 7.0
-      env: PHPLINT=1 PHPUNIT=1 SYMFONY_VERSION="2.8.*"
-    - php: 5.6
-      env: PHPLINT=1 PHPUNIT=1 SYMFONY_VERSION="2.7.*"
+    - php: '7.0'
+      env: PHPLINT=1 PHPUNIT=0 SYMFONY_VERSION="2.8.*"
+    - php: '5.6'
+      env: PHPLINT=1 PHPUNIT=0 SYMFONY_VERSION="2.7.*"
 
 cache:
   directories:
     - $HOME/.composer/cache/files
 
 before_script:
-  - composer install --no-interaction --prefer-dist
+  - composer install --no-interaction --prefer-dist --quiet
   - if [ "$SYMFONY_VERSION" != "" ]; then composer require --dev --no-update symfony/symfony:"$SYMFONY_VERSION"; fi
 
 script:
   - if [[ "$PHPLINT" == "1" ]]; then find -L .  -path ./vendor -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l; fi
   - if [[ "$PHPUNIT" == "1" ]]; then vendor/bin/phpunit -v; fi
-  - if [[ "$PHPSNIFF" == "1" ]]; then find -L .  -path ./vendor -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 vendor/bin/phpcs --standard="PSR2" -v; fi
+  - if [[ "$PHPSNIFF" == "1" ]]; then vendor/bin/php-cs-fixer fix -v --dry-run --stop-on-violation --using-cache=no --diff --diff-format=udiff; fi
