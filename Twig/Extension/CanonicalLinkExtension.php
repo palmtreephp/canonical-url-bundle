@@ -14,6 +14,7 @@ class CanonicalLinkExtension extends \Twig_Extension
 
     /**
      * CanonicalLinkExtension constructor.
+     *
      * @param CanonicalUrlGenerator $canonicalUrlGenerator
      * @param RequestStack          $requestStack
      */
@@ -62,7 +63,7 @@ class CanonicalLinkExtension extends \Twig_Extension
      */
     public function generateUrl($route = null, $parameters = [])
     {
-        if (func_num_args() === 0) {
+        if (\func_num_args() === 0) {
             $request = $this->requestStack->getCurrentRequest();
 
             $route      = $request->attributes->get('_route');

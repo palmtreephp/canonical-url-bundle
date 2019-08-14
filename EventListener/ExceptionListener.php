@@ -24,6 +24,7 @@ class ExceptionListener
 
     /**
      * KernelEventListener constructor.
+     *
      * @param RouterInterface $router
      * @param array           $config
      */
@@ -51,7 +52,7 @@ class ExceptionListener
             // We're about to throw a 404 error, try to resolve it
             $request = $event->getRequest();
 
-            $uri = strtok($request->getRequestUri(), '?');
+            $uri = \strtok($request->getRequestUri(), '?');
 
             // See if there's a matching route without a trailing slash
             $match = $this->getAlternativeRoute($uri);
@@ -86,7 +87,7 @@ class ExceptionListener
      */
     protected function getAlternativeRoute($uri)
     {
-        $alternativeUri = rtrim($uri, '/');
+        $alternativeUri = \rtrim($uri, '/');
 
         if ($this->trailingSlash) {
             $alternativeUri .= '/';
@@ -96,7 +97,7 @@ class ExceptionListener
             return null;
         }
 
-        $alternativeUri = preg_replace(static::CONTROLLER_PATTERN, '', $alternativeUri);
+        $alternativeUri = \preg_replace(static::CONTROLLER_PATTERN, '', $alternativeUri);
 
         try {
             $match = $this->router->match($alternativeUri);

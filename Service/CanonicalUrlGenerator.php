@@ -16,6 +16,7 @@ class CanonicalUrlGenerator
 
     /**
      * CanonicalUrlService constructor.
+     *
      * @param RouterInterface $router
      * @param array           $config
      */
@@ -30,7 +31,7 @@ class CanonicalUrlGenerator
     /**
      * Returns the canonical URL for a route.
      *
-     * @param string       $route      Route to generate a URL for.
+     * @param string       $route  Route to generate a URL for.
      * @param string|array $params String in 'key1=val1&key2=val2' format or array of query parameters.
      *
      * @return string
@@ -44,19 +45,20 @@ class CanonicalUrlGenerator
         $params = $this->getParameters($params);
 
         $uri = $this->router->generate($route, $params, UrlGeneratorInterface::ABSOLUTE_PATH);
-        $url = rtrim($this->siteUrl, '/') . '/' . ltrim($uri, '/');
+        $url = \rtrim($this->siteUrl, '/') . '/' . \ltrim($uri, '/');
 
         return $url;
     }
 
     /**
      * @param string|array $parameters
+     *
      * @return array
      */
     protected function getParameters($parameters = [])
     {
-        if (is_string($parameters)) {
-            parse_str($parameters, $parameters);
+        if (\is_string($parameters)) {
+            \parse_str($parameters, $parameters);
         }
 
         if (!$parameters) {

@@ -22,8 +22,8 @@ class ConfigurationTest extends AbstractTest
                 'trailing_slash' => true,
             ],
             [
-                'trailing_slash' => false
-            ]
+                'trailing_slash' => false,
+            ],
         ];
 
         $config = $this->process($configs);
@@ -41,7 +41,7 @@ class ConfigurationTest extends AbstractTest
         $configs = [
             [
                 'site_url' => false,
-            ]
+            ],
         ];
 
         $this->process($configs);
@@ -55,7 +55,7 @@ class ConfigurationTest extends AbstractTest
         $configs = [
             [
                 'redirect_code' => 404,
-            ]
+            ],
         ];
 
         $this->process($configs);
@@ -69,7 +69,7 @@ class ConfigurationTest extends AbstractTest
         $configs = [
             [
                 'redirect' => 9,
-            ]
+            ],
         ];
 
         $this->process($configs);

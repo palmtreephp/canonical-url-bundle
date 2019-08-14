@@ -9,6 +9,7 @@ class CanonicalUrlGeneratorTest extends AbstractTest
 {
     /**
      * @dataProvider configProvider
+     *
      * @param array $config
      */
     public function testGenerateUrl(array $config)
@@ -22,6 +23,7 @@ class CanonicalUrlGeneratorTest extends AbstractTest
 
     /**
      * @dataProvider configProvider
+     *
      * @param array $config
      */
     public function testGenerateUrlWithStringParams(array $config)
@@ -36,6 +38,7 @@ class CanonicalUrlGeneratorTest extends AbstractTest
     /**
      * @dataProvider configProvider
      * @expectedException \Symfony\Component\Routing\Exception\RouteNotFoundException
+     *
      * @param array $config
      */
     public function testNonExistentRouteThrowsException(array $config)
@@ -47,6 +50,7 @@ class CanonicalUrlGeneratorTest extends AbstractTest
 
     /**
      * @dataProvider configProvider
+     *
      * @param array $config
      */
     public function testEmptyRouteReturnsEmptyString(array $config)

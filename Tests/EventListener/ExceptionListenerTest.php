@@ -15,6 +15,7 @@ class ExceptionListenerTest extends AbstractTest
 {
     /**
      * @dataProvider configProvider
+     *
      * @param array $config
      */
     public function testTrailingSlashRedirect(array $config)
@@ -35,6 +36,7 @@ class ExceptionListenerTest extends AbstractTest
 
     /**
      * @dataProvider configProvider
+     *
      * @param array $config
      */
     public function testNoTrailingSlashRedirect(array $config)
@@ -58,6 +60,7 @@ class ExceptionListenerTest extends AbstractTest
 
     /**
      * @dataProvider configProvider
+     *
      * @param array $config
      */
     public function testNonMatchingAlternativeRouteReturnsFalse(array $config)
@@ -74,6 +77,7 @@ class ExceptionListenerTest extends AbstractTest
 
     /**
      * @dataProvider configProvider
+     *
      * @param array $config
      */
     public function testKernelRequestListenerDoesNothingForNonExistentRoute(array $config)
@@ -90,6 +94,7 @@ class ExceptionListenerTest extends AbstractTest
 
     /**
      * @dataProvider configProvider
+     *
      * @param array $config
      */
     public function testRouteWithUrlParametersAndTrailingSlashRedirectsToCorrectRoute(array $config)
@@ -110,6 +115,7 @@ class ExceptionListenerTest extends AbstractTest
 
     /**
      * @param Request $request
+     *
      * @return GetResponseForExceptionEvent
      */
     protected function getGetResponseForExceptionEvent(Request $request)
@@ -126,6 +132,7 @@ class ExceptionListenerTest extends AbstractTest
 
     /**
      * @param array $config
+     *
      * @return ExceptionListener
      */
     protected function getListener(array $config)

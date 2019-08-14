@@ -53,6 +53,7 @@ abstract class AbstractTest extends TestCase
     /**
      * @param bool $secure
      * @param bool $trailingSlash
+     *
      * @return Request
      */
     protected function getMockRequest($path, $secure = true, $trailingSlash = true)
@@ -73,6 +74,7 @@ abstract class AbstractTest extends TestCase
     /**
      * @param bool $secure
      * @param bool $trailingSlash
+     *
      * @return Request
      */
     protected function getFooRequest($secure = true, $trailingSlash = true)
@@ -83,6 +85,7 @@ abstract class AbstractTest extends TestCase
     /**
      * @param bool $secure
      * @param bool $trailingSlash
+     *
      * @return Request
      */
     protected function getBazRequest($secure = true, $trailingSlash = true)
@@ -102,8 +105,8 @@ abstract class AbstractTest extends TestCase
                     'redirect'       => true,
                     'redirect_code'  => 302,
                     'trailing_slash' => false,
-                ]
-            ]
+                ],
+            ],
         ];
     }
 }

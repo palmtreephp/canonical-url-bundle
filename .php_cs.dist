@@ -1,0 +1,12 @@
+<?php
+
+use Palmtree\PhpCsFixerConfig\Config;
+
+$config = new Config();
+
+$config
+    ->getFinder()
+    ->in(__DIR__)
+    ->append([__FILE__]);
+
+return $config;

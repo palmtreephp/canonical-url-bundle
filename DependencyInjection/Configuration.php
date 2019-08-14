@@ -22,7 +22,7 @@ class Configuration implements ConfigurationInterface
                     ->isRequired()->cannotBeEmpty()
                     ->validate()
                         ->ifTrue(function ($value) {
-                            return !is_string($value);
+                            return !\is_string($value);
                         })
                         ->thenInvalid('site_url must be a string')
                     ->end()

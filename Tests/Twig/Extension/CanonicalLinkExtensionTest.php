@@ -11,6 +11,7 @@ class CanonicalLinkExtensionTest extends AbstractTest
 {
     /**
      * @dataProvider configProvider
+     *
      * @param array $config
      */
     public function testGenerateUrlMethod(array $config)
@@ -24,6 +25,7 @@ class CanonicalLinkExtensionTest extends AbstractTest
 
     /**
      * @dataProvider configProvider
+     *
      * @param array $config
      */
     public function testGenerateUrlMethodWithNoRouteDefaultsToCurrentRequest(array $config)
@@ -37,6 +39,7 @@ class CanonicalLinkExtensionTest extends AbstractTest
 
     /**
      * @dataProvider configProvider
+     *
      * @param array $config
      */
     public function testRenderLinkTag(array $config)
@@ -55,13 +58,14 @@ class CanonicalLinkExtensionTest extends AbstractTest
         $twig->addExtension($extension);
 
         $html = $extension->renderLinkTag($twig, 'https://example.org');
-        $html = trim($html);
+        $html = \trim($html);
 
         $this->assertEquals('<link rel="canonical" href="https://example.org">', $html);
     }
 
     /**
      * @param $config
+     *
      * @return CanonicalLinkExtension
      */
     protected function getExtension($config)

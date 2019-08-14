@@ -17,6 +17,7 @@ class RequestListener
 
     /**
      * KernelEventListener constructor.
+     *
      * @param CanonicalUrlGenerator $urlGenerator
      * @param array                 $config
      */
@@ -49,13 +50,13 @@ class RequestListener
 
         // Get full request URL without query string.
         $requestUrl = $request->getSchemeAndHttpHost() . $request->getRequestUri();
-        $requestUrl = urldecode(strtok($requestUrl, '?'));
+        $requestUrl = \urldecode(\strtok($requestUrl, '?'));
 
         $redirectUrl = $this->canonicalUrlGenerator->generate($route, $params);
         // Compare without query string
-        $canonicalUrl = urldecode(strtok($redirectUrl, '?'));
+        $canonicalUrl = \urldecode(\strtok($redirectUrl, '?'));
 
-        if ($redirectUrl && strcasecmp($requestUrl, $canonicalUrl) !== 0) {
+        if ($redirectUrl && \strcasecmp($requestUrl, $canonicalUrl) !== 0) {
             if ($this->redirect) {
                 $response = new RedirectResponse($redirectUrl, $this->redirectCode);
                 $event->setResponse($response);

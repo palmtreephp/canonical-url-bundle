@@ -15,16 +15,21 @@
         "symfony/config": "~2.7|~3.0",
         "symfony/routing": "~2.7|~3.0",
         "symfony/http-kernel": "~2.7|~3.0",
-        "twig/twig": "~1.28|~2.0"
+        "twig/twig": "~1.28|~2.0",
+        "palmtree/php-cs-fixer-config": "^1.0"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "~2.8",
+        "phpunit/phpunit": "~5.7|~6.0",
+        "symfony/yaml": "~3.2"
     },
     "autoload": {
         "psr-4": {
             "Palmtree\\CanonicalUrlBundle\\": ""
         }
     },
-    "require-dev": {
-        "squizlabs/php_codesniffer": "~2.8",
-        "phpunit/phpunit": "~5.7|~6.0",
-        "symfony/yaml": "~3.2"
+    "scripts": {
+        "sniff": "vendor/bin/php-cs-fixer fix -v --dry-run --stop-on-violation --using-cache=no --diff --diff-format=udiff",
+        "fix": "vendor/bin/php-cs-fixer fix --diff"
     }
 }

@@ -10,6 +10,7 @@ class PalmtreeCanonicalUrlExtensionTest extends AbstractTest
 {
     /**
      * @dataProvider configProvider
+     *
      * @param array $config
      */
     public function testSetConfigurationParameter(array $config)
@@ -23,9 +24,6 @@ class PalmtreeCanonicalUrlExtensionTest extends AbstractTest
         $this->assertSame($config, $container->getParameter('palmtree_canonical_url.config'));
     }
 
-    /**
-     *
-     */
     public function testGetAlias()
     {
         $extension = new PalmtreeCanonicalUrlExtension();

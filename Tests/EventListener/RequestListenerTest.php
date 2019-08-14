@@ -16,6 +16,7 @@ class RequestListenerTest extends AbstractTest
 {
     /**
      * @dataProvider configProvider
+     *
      * @param array $config
      */
     public function testCanonicalRedirect(array $config)
@@ -35,6 +36,7 @@ class RequestListenerTest extends AbstractTest
 
     /**
      * @dataProvider configProvider
+     *
      * @param array $config
      */
     public function testNoRedirectWhenUrlIsCanonical(array $config)
@@ -53,6 +55,7 @@ class RequestListenerTest extends AbstractTest
 
     /**
      * @dataProvider configProvider
+     *
      * @param array $config
      */
     public function testKernelRequestListenerDoesNothingWithEmptyRoute(array $config)
@@ -68,6 +71,7 @@ class RequestListenerTest extends AbstractTest
 
     /**
      * @param Request $request
+     *
      * @return GetResponseEvent
      */
     protected function getGetResponseEvent(Request $request)
@@ -83,6 +87,7 @@ class RequestListenerTest extends AbstractTest
 
     /**
      * @param array $config
+     *
      * @return RequestListener
      */
     protected function getListener(array $config)
