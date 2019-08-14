@@ -37,12 +37,12 @@ class CanonicalUrlGeneratorTest extends AbstractTest
 
     /**
      * @dataProvider configProvider
-     * @expectedException \Symfony\Component\Routing\Exception\RouteNotFoundException
      *
      * @param array $config
      */
     public function testNonExistentRouteThrowsException(array $config)
     {
+        $this->expectException(\Symfony\Component\Routing\Exception\RouteNotFoundException::class);
         $urlGenerator = new CanonicalUrlGenerator($this->getRouter(), $config);
 
         $urlGenerator->generate('bar');

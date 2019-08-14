@@ -33,11 +33,10 @@ class ConfigurationTest extends AbstractTest
         $this->assertFalse($config['trailing_slash']);
     }
 
-    /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
-     */
     public function testInvalidSiteUrl()
     {
+        $this->expectException(\Symfony\Component\Config\Definition\Exception\InvalidConfigurationException::class);
+
         $configs = [
             [
                 'site_url' => false,
@@ -47,11 +46,10 @@ class ConfigurationTest extends AbstractTest
         $this->process($configs);
     }
 
-    /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
-     */
     public function testInvalidRedirectCode()
     {
+        $this->expectException(\Symfony\Component\Config\Definition\Exception\InvalidConfigurationException::class);
+
         $configs = [
             [
                 'redirect_code' => 404,
@@ -61,11 +59,9 @@ class ConfigurationTest extends AbstractTest
         $this->process($configs);
     }
 
-    /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
-     */
     public function testInvalidRedirect()
     {
+        $this->expectException(\Symfony\Component\Config\Definition\Exception\InvalidConfigurationException::class);
         $configs = [
             [
                 'redirect' => 9,
