@@ -14,13 +14,13 @@ class ExceptionListener
     const CONTROLLER_PATTERN = '~^/app(?:_.+)*\.php~';
 
     /** @var RouterInterface */
-    protected $router;
+    private $router;
     /** @var bool */
-    protected $redirect;
+    private $redirect;
     /** @var int */
-    protected $redirectCode;
+    private $redirectCode;
     /** @var bool */
-    protected $trailingSlash;
+    private $trailingSlash;
 
     /**
      * KernelEventListener constructor.
@@ -85,7 +85,7 @@ class ExceptionListener
      *
      * @return array|null
      */
-    protected function getAlternativeRoute($uri)
+    private function getAlternativeRoute($uri)
     {
         $alternativeUri = \rtrim($uri, '/');
 

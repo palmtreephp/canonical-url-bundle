@@ -8,11 +8,11 @@ use Symfony\Component\Routing\RouterInterface;
 class CanonicalUrlGenerator
 {
     /** @var RouterInterface */
-    protected $router;
+    private $router;
     /** @var string */
-    protected $siteUrl;
+    private $siteUrl;
     /** @var bool */
-    protected $trailingSlash;
+    private $trailingSlash;
 
     /**
      * CanonicalUrlService constructor.
@@ -55,7 +55,7 @@ class CanonicalUrlGenerator
      *
      * @return array
      */
-    protected function getParameters($parameters = [])
+    private function getParameters($parameters = [])
     {
         if (\is_string($parameters)) {
             \parse_str($parameters, $parameters);

@@ -9,11 +9,11 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 class RequestListener
 {
     /** @var CanonicalUrlGenerator */
-    protected $canonicalUrlGenerator;
+    private $canonicalUrlGenerator;
     /** @var bool */
-    protected $redirect;
+    private $redirect;
     /** @var int */
-    protected $redirectCode;
+    private $redirectCode;
 
     /**
      * KernelEventListener constructor.
