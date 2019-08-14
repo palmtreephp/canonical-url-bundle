@@ -7,7 +7,7 @@ matrix:
   allow_failures:
     - php: hhvm
   include:
-    - php: 7.1
+    - php: 7.3
       env: PHPSNIFF=1 PHPLINT=1 PHPUNIT=1
     - php: 7.0
       env: PHPLINT=1 PHPUNIT=1 SYMFONY_VERSION="2.8.*"
