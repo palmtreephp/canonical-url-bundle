@@ -1,13 +1,22 @@
 checks:
     php: true
-filter: {  }
+tools:
+    php_loc:
+        enabled: true
+        excluded_dirs: [Tests, vendor]
+    php_cpd:
+        enabled: true
+    php_sim:
+        enabled: true
 build:
     environment:
         php: '7.3'
+        postgresql: false
+        redis: false
     cache:
         directories:
-            - vendor/
-            - ~/.composer/cache/files
+            - 'vendor/'
+            - '~/.composer/cache/files'
     tests:
         override:
             -
@@ -15,3 +24,6 @@ build:
                 coverage:
                     file: 'coverage'
                     format: 'clover'
+            - php-scrutinizer-run
+            -
+                command: 'vendor/bin/php-cs-fixer fix -v --dry-run --stop-on-violation --using-cache=no --diff --diff-format=udiff'
